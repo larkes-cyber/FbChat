@@ -43,7 +43,7 @@ class SignInAct : AppCompatActivity() {
         binding.button.setOnClickListener {
             signInWithGoogle()
         }
-
+        checkAuthUser()
     }
 
     private fun getClient():GoogleSignInClient{
@@ -67,9 +67,17 @@ class SignInAct : AppCompatActivity() {
         auth.signInWithCredential(credential).addOnCompleteListener {
             if(it.isSuccessful){
                 Log.d("My log","Google signIn done")
+                checkAuthUser()
             }else{
                 Log.d("My log","Google signIn error")
             }
+        }
+    }
+
+    private fun checkAuthUser(){
+        if(auth.currentUser != null){
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
         }
     }
 

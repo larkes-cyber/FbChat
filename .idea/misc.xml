@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirebaseChat/app/src/main/res/drawable/back_for_icon.xml" value="0.2125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FirebaseChat/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FirebaseChat/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FirebaseChat/app/src/main/res/layout/navigation_bar.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirebaseChat/app/src/main/res/menu/app_menu.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirebaseChat/app/src/main/res/menu/main_menu.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirebaseChat/app/src/main/res/menu/menu.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirebaseChat/app/src/main/res/menu/navdrawer_menu.xml" value="0.20520833333333333" />
       </map>
     </option>
   </component>

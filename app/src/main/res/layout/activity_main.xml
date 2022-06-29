@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".MainActivity">
-    <include layout="@layout/navigation_bar"/>
+    <include android:id="@+id/bar" layout="@layout/navigation_bar"/>
     <TextView
         android:id="@+id/rcView"
         android:layout_weight="9"
@@ -43,7 +43,7 @@ android:layout_weight="2"
             android:text = "send"
             android:textSize="15sp"
             android:padding="10dp"
-            android:background="#3C2AFA"
+            android:background="@color/whatsapp_green_light"
             android:textColor="@color/white"
             />
 
