@@ -4,6 +4,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firebasechat.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var auth:FirebaseAuth
+    lateinit var adapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +33,16 @@ class MainActivity : AppCompatActivity() {
         setupActionBar()
 
         binding.button.setOnClickListener {
-            myRef.setValue(binding.inpMessage.text.toString())
+            myRef.child(myRef.push().key ?: "lolka").setValue(User(auth.currentUser?.displayName,binding.inpMessage.text.toString()))
         }
         onChangeListener(myRef)
+        initRcView()
+    }
+
+    private fun initRcView(){
+        adapter = UserAdapter()
+        binding.rcView.layoutManager = LinearLayoutManager(this)
+        binding.rcView.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,12 +55,12 @@ class MainActivity : AppCompatActivity() {
 
         dRef.addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-
-                binding.apply {
-                    rcView.append("\n")
-                    rcView.append("Sergey: ${snapshot.value.toString()}")
-
+                val list = ArrayList<User>()
+                for(s in snapshot.children){
+                    val user = s.getValue(User::class.java)
+                    if(user != null)list.add(user)
                 }
+                adapter.submitList(list)
 
             }
 

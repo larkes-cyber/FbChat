@@ -8,12 +8,10 @@
     android:background="@color/white"
     tools:context=".MainActivity">
     <include android:id="@+id/bar" layout="@layout/navigation_bar"/>
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView"
         android:layout_weight="9"
         android:layout_width="match_parent"
-        android:textSize="20sp"
-        android:textColor="#B3000000"
         android:layout_height="0dp"/>
 
     <LinearLayout
